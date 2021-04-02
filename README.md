@@ -1,5 +1,11 @@
-# Unsplash Image Gallery
+# Infinite Gallery
 
-**Important**: Make sure to add your own [Unsplash API Key](https://unsplash.com/developers) to a `.env` file.
+#### 📝 Description
 
-- Copy `.env.example` to `.env`
+Gallery with infinite scroll
+
+#### 🛠️ Built with
+
+- React state - useState()
+- Parent and child components
+- Unsplash Api
