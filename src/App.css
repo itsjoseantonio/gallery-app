@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comfortaa', Arial, Helvetica, sans-serif;
+}
+
+.app {
+    text-align: center;
+    min-height: 100vh;
+    background: #fff;
+    padding: 80px 50px;
+}
+
+.error {
+    display: inline-block;
+    text-align: center;
+    margin: 30px;
+    background: rgb(221, 85, 70);
+    color: rgb(247, 232, 230);
+    padding: 20px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s ease all;
+}
+
+.error:hover {
+    background: rgb(235, 95, 79);
+    box-shadow: 3px 3px 0 rgb(141, 38, 26);
+}
+
+h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #bbb;
+}
+
+form {
+    margin-bottom: 50px;
+}
+
+input[type='text'] {
+    min-width: 400px;
+    border-radius: 50px;
+    padding: 15px 20px;
+    border: 1px solid #999;
+    outline: none;
+    margin-right: 12px;
+    font-size: 18px;
+    transition: 0.3s ease border-color;
+}
+
+input[type='text']:active,
+input[type='text']:focus {
+    border-color: #999;
+}
+
+button {
+    padding: 15px 20px;
+    border-radius: 50px;
+    border: none;
+    background: #222;
+    color: #bbb;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease all;
+}
+
+button:hover {
+    background: #111;
+    color: #eee;
+}
+
+.image-grid {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(50px, 200px);
+}
+
+.image {
+    background: #fff;
+    border: 3px solid #fff;
+    border-radius: 3px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) transform;
+    overflow: hidden;
+}
+
+.image:hover {
+    /* transform: translateY(-2px); */
+}
+
+.image img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 300ms ease-in-out;
+}
+
+.image:hover img {
+    transform: scale(1.1);
+}
+
+.image:nth-child(3n) {
+    grid-column-end: span 2;
+}
+
+@media screen and (max-width: 768px) {
+    .app {
+        padding: 40px 20px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .image-grid {
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+        grid-auto-rows: minmax(50px, 160px);
+    }
+}
+
+.hamburguer {
+    width: 30px;
+    height: 22px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.hamburguer span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #696969;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+}
+
+.hamburguer span:nth-child(1) {
+    top: 0px;
+}
+
+.hamburguer span:nth-child(2),
+.hamburguer span:nth-child(3) {
+    top: 9px;
+}
+
+.hamburguer span:nth-child(4) {
+    top: 18px;
+}
+
+.hamburguer.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+.hamburguer.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.hamburguer.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.hamburguer.open span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
