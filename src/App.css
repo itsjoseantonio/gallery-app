@@ -125,6 +125,8 @@ button:hover {
 
 .wrapper-image {
     padding: 30px 0;
+    max-width: 1170px;
+    margin: 0 auto;
 }
 
 .image-grid {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Menu.css';
 
 const list = [
@@ -14,7 +14,7 @@ const Menu = (props) => {
     const renderedList = list.map((item, index) => {
         return (
             <li key={index}>
-                <a href="#">{item}</a>
+                <a href="">{item}</a>
             </li>
         );
     });

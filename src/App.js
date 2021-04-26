@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Menu from './components/Menu/Menu';
+import Spinner from './components/spinner/Spinner';
 import './App.css';
 
 const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
@@ -74,7 +75,7 @@ export default function App() {
                 </div>
             </header>
 
-            <div class="wrapper-search">
+            <div className="wrapper-search">
                 <form onSubmit={searchPhotos}>
                     <input
                         type="text"
@@ -86,12 +87,12 @@ export default function App() {
                 </form>
             </div>
 
-            <div class="wrapper-image">
+            <div className="wrapper-image">
                 <InfiniteScroll
                     dataLength={images.length} //This is important field to render the next data
                     next={() => setPage((page) => page + 1)}
                     hasMore={true}
-                    loader={<h4>Loading...</h4>}
+                    loader={<Spinner />}
                 >
                     <div className="image-grid">
                         {images.map((image, index) => (
