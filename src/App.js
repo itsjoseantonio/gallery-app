@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Menu from './components/Menu/Menu';
 import Spinner from './components/spinner/Spinner';
@@ -12,11 +12,17 @@ export default function App() {
     const [query, setQuery] = useState('');
     const [open, setOpen] = useState('');
     const [className, setClassName] = useState('');
+    const app = document.querySelector('.app');
+    const inputRef = useRef();
 
     useEffect(() => {
         getPhotos();
         // eslint-disable-next-line
     }, [page]);
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, [className]);
 
     function getPhotos() {
         let apiUrl = `https://api.unsplash.com/photos?`;
@@ -39,11 +45,10 @@ export default function App() {
         e.preventDefault();
         setPage(1);
         getPhotos();
+        setClassName('');
     }
 
     function openComponent(e) {
-        console.log(e.currentTarget.className);
-        const app = document.querySelector('.app');
         if (app.classList.contains('search')) {
             if (e.currentTarget.className === 'icon-search') setClassName('');
             else if (e.currentTarget.className === 'hamburguer') {
@@ -60,9 +65,9 @@ export default function App() {
             }
         } else {
             console.log('no contains');
-            if (e.currentTarget.className === 'icon-search')
+            if (e.currentTarget.className === 'icon-search') {
                 setClassName('search');
-            else if (e.currentTarget.className === 'hamburguer') {
+            } else if (e.currentTarget.className === 'hamburguer') {
                 setClassName('show-menu');
                 setOpen(true);
             }
@@ -84,7 +89,7 @@ export default function App() {
                         <path d="M0 0h48v48h-48z" fill="none" />
                     </svg>
                 </span>
-                <h1>Unsplash Image Gallery!</h1>
+                <h1>Imagesource Gallery</h1>
                 <div
                     className={`hamburguer${open ? ' open' : ''}`}
                     onClick={openComponent}
@@ -104,6 +109,7 @@ export default function App() {
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         className="input-search"
+                        ref={inputRef}
                     />
                 </form>
             </div>

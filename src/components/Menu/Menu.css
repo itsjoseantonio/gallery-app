@@ -14,6 +14,7 @@
     background-color: #222223;
     visibility: hidden;
     opacity: 0;
+    transition: all 200ms ease-in-out;
 }
 
 .menu ul {
