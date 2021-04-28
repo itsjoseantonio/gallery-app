@@ -10,8 +10,8 @@ export default function App() {
     const [images, setImages] = useState([]);
     const [page, setPage] = useState(0);
     const [query, setQuery] = useState('');
-    const [open, setOpen] = useState(false);
-    const [search, setSearch] = useState(false);
+    const [open, setOpen] = useState('');
+    const [className, setClassName] = useState('');
 
     useEffect(() => {
         getPhotos();
@@ -39,20 +39,41 @@ export default function App() {
         e.preventDefault();
         setPage(1);
         getPhotos();
-        setSearch(!search);
     }
 
-    function openSearch() {
-        const input = document.querySelector('.input-search');
-        setSearch(!search);
-        input.focus();
+    function openComponent(e) {
+        console.log(e.currentTarget.className);
+        const app = document.querySelector('.app');
+        if (app.classList.contains('search')) {
+            if (e.currentTarget.className === 'icon-search') setClassName('');
+            else if (e.currentTarget.className === 'hamburguer') {
+                setClassName('show-menu');
+                setOpen(true);
+            }
+        } else if (app.classList.contains('show-menu')) {
+            if (e.currentTarget.className === 'hamburguer open') {
+                setClassName('');
+                setOpen(false);
+            } else if (e.currentTarget.className === 'icon-search') {
+                setClassName('search');
+                setOpen(false);
+            }
+        } else {
+            console.log('no contains');
+            if (e.currentTarget.className === 'icon-search')
+                setClassName('search');
+            else if (e.currentTarget.className === 'hamburguer') {
+                setClassName('show-menu');
+                setOpen(true);
+            }
+        }
     }
 
     return (
-        <div className={`app ${search ? 'search' : ''}`}>
+        <div className={`app ${className}`}>
             <Menu open={open} />
             <header>
-                <span className="icon-search" onClick={openSearch}>
+                <span className="icon-search" onClick={openComponent}>
                     <svg
                         height="48"
                         viewBox="0 0 48 48"
@@ -65,8 +86,8 @@ export default function App() {
                 </span>
                 <h1>Unsplash Image Gallery!</h1>
                 <div
-                    className={`hamburguer ${open ? 'open' : ''}`}
-                    onClick={() => setOpen(!open)}
+                    className={`hamburguer${open ? ' open' : ''}`}
+                    onClick={openComponent}
                 >
                     <span></span>
                     <span></span>

@@ -3,10 +3,17 @@
     height: 100vh;
     width: 250px;
     background-color: white;
-    transform: translateX(-100%);
-    transition: transform 300ms;
     left: 0;
     top: 0;
+    right: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: #222223;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .menu ul {
@@ -14,11 +21,7 @@
     padding: 0px;
     color: black;
     list-style-type: none;
-    text-align: left;
-}
-
-.menu ul li {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+    text-align: center;
 }
 
 .menu ul li:last-child {
@@ -30,7 +33,7 @@
     font-size: 20px;
     text-decoration: none;
     display: block;
-    color: #696969;
+    color: #a1a1a3;
 }
 .menu ul li a:hover,
 .menu ul li a:active,
@@ -38,7 +41,4 @@
 .menu ul li a:link {
     text-decoration: none;
     color: #696969;
-}
-.menu.isopen {
-    transform: none;
 }

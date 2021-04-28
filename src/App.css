@@ -22,15 +22,20 @@ body {
     opacity: 1;
 }
 
-.app.search header h1 {
+.app.show-menu .menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.app.search header h1, .app.show-menu header h1{
     color: #a1a1a3;
 }
 
-.app.search header .hamburguer span {
+.app.search header .hamburguer span, .app.show-menu header .hamburguer span{
     background: #a1a1a3;
 }
 
-.app.search header .icon-search svg {
+.app.search header .icon-search svg, .app.show-menu header .icon-search svg {
     fill: #a1a1a3;
 }
 
@@ -61,7 +66,7 @@ header {
     max-width: 1170px;
     margin: 0 auto;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 h1 {
