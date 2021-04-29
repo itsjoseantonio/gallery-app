@@ -123,6 +123,14 @@ input[type='text'] {
     color: #fff;
 }
 
+@media screen and (max-width: 768px) {
+    input[type='text'] {
+        min-width: initial;
+        max-width: 85%;
+        font-size: 32px;
+    }
+}
+
 input[type='text']:active,
 input[type='text']:focus {
     border-color: #999;
