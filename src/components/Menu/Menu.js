@@ -2,6 +2,7 @@ import React from 'react';
 import './Menu.css';
 
 const list = [
+    'Interior Design',
     'Landscape',
     'Nature',
     'People',
@@ -10,16 +11,18 @@ const list = [
     'Wallpapers',
 ];
 
-const Menu = (props) => {
+const Menu = ({ open, onHandleClick }) => {
     const renderedList = list.map((item, index) => {
         return (
             <li key={index}>
-                <a href="">{item}</a>
+                <a href="" onClick={onHandleClick}>
+                    {item}
+                </a>
             </li>
         );
     });
     return (
-        <div className={`menu ${props.open ? 'isopen' : ''}`}>
+        <div className={`menu ${open ? 'isopen' : ''}`}>
             <ul>{renderedList}</ul>
         </div>
     );

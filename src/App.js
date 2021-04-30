@@ -20,9 +20,9 @@ export default function App() {
         // eslint-disable-next-line
     }, [page]);
 
-    useEffect(() => {
-        inputRef.current.focus();
-    }, [className]);
+    // useEffect(() => {
+    //     inputRef.current.focus();
+    // }, [className]);
 
     function getPhotos() {
         let apiUrl = `https://api.unsplash.com/photos?`;
@@ -74,9 +74,19 @@ export default function App() {
         }
     }
 
+    function handleClick(e) {
+        e.preventDefault();
+        setQuery(e.target.innerText);
+        setPage(1);
+        getPhotos();
+        setClassName('');
+        setOpen(false);
+    }
+
     return (
         <div className={`app ${className}`}>
-            <Menu open={open} />
+            <Menu open={open} onHandleClick={handleClick} />
+
             <header>
                 <span className="icon-search" onClick={openComponent}>
                     <svg

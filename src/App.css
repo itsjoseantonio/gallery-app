@@ -181,10 +181,6 @@ button:hover {
     overflow: hidden;
 }
 
-.image:hover {
-    /* transform: translateY(-2px); */
-}
-
 .image img {
     display: flex;
     width: 100%;
